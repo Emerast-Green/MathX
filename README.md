@@ -1,0 +1,2 @@
+# MathX
+ Projekt stypendialny
