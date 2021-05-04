@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 268793679181562884}
   - component: {fileID: 4990724882658450837}
   m_Layer: 0
-  m_Name: Cube.001
+  m_Name: Banan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,9 +59,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 8d8723234db325749af72f18d97e0f4c, type: 3}
-  - {fileID: -6922793697723135513, guid: 8d8723234db325749af72f18d97e0f4c, type: 3}
-  - {fileID: 4874126678125670354, guid: 8d8723234db325749af72f18d97e0f4c, type: 3}
+  - {fileID: 2100000, guid: 829616f757da77242b443badd7145fd0, type: 2}
+  - {fileID: 2100000, guid: 1a71f9bc51a311d4faa41a75e7d2b0e7, type: 2}
+  - {fileID: 2100000, guid: 1a71f9bc51a311d4faa41a75e7d2b0e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
