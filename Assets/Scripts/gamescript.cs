@@ -10,7 +10,9 @@ public class gamescript : MonoBehaviour
     public AudioSource win_sound;
     public AudioSource loose_sound;
     public AudioSource background;
-    public GameObject banana_prefab;
+
+    public GameObject[] prefabs;
+    
     public GameObject[] bananas;
     public Text board;
     public Text scoreboard;
@@ -21,7 +23,10 @@ public class gamescript : MonoBehaviour
     public int stage; //  which stage is active?
     public Canvas menu;
     public Canvas game;
+
     int itemamount = -1;
+    int fruit = 0;
+
     int t; // temporary itemamount value
     int score;
     int lives;
@@ -67,9 +72,10 @@ public class gamescript : MonoBehaviour
         {           
             t = Random.Range(1,10);
             if(t==itemamount){t=Random.Range(1,10);};
+            fruit = Random.Range(0,prefabs.Length);
             itemamount = t;
             print("Random:"+itemamount.ToString());
-            if(lives>0){this.Draw(itemamount);}else{this.Clean(itemamount);};
+            if(lives>0){this.Draw(0,itemamount,fruit);}else{this.Clean(itemamount);};
             progress = false;
             board.text = "";
             Continue = true;
@@ -155,7 +161,7 @@ public class gamescript : MonoBehaviour
             bananas[i]=null;
         }
     }
-    void Draw(int amount)
+    void Draw(int y,int amount,int prefab_index)
     {
         for(int i=0;i<20;i++)
         {
@@ -164,7 +170,7 @@ public class gamescript : MonoBehaviour
         }
         for(int i=0;i<amount;i++) 
         {
-            bananas[i] = Instantiate(banana_prefab, new Vector3(-8+i*4,10,16), Quaternion.identity);
+            bananas[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,10+y,16), Quaternion.identity);
             bananas[i].transform.Rotate(-84,0,90,Space.Self);
         };
     }
