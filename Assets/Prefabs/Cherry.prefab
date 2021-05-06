@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5347632306775966160}
   - component: {fileID: 1422495900171602923}
   m_Layer: 0
-  m_Name: Sphere.000
+  m_Name: Cherry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7493653110465038505}
-  m_LocalRotation: {x: -0.52362794, y: 0, z: -0, w: 0.85194707}
-  m_LocalPosition: {x: -0, y: 0.15499029, z: -0.80609155}
+  m_LocalRotation: {x: -0.056115147, y: 0.8470409, z: 0.52061236, w: 0.09129986}
+  m_LocalPosition: {x: -0.23278767, y: 0.15499032, z: 1.3536148}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -63.152, y: 167.696, z: 0}
 --- !u!33 &5347632306775966160
 MeshFilter:
   m_ObjectHideFlags: 0

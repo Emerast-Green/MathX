@@ -25,8 +25,9 @@ public class gamebutton : MonoBehaviour
     {
         print("Clicked!");
         gamescript.menu.planeDistance = -1;
-        gamescript.game.planeDistance = 60;
-        gamescript.stage = 1;
-        gamescript.GameStart();
+        gamescript.game.planeDistance = -1;
+        gamescript.lvl.planeDistance = 60;
+        gamescript.stage = 2;
+        //gamescript.GameStart();
     }
 }

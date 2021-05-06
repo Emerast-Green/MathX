@@ -23,6 +23,7 @@ public class gamescript : MonoBehaviour
     public int stage; //  which stage is active?
     public Canvas menu;
     public Canvas game;
+    public Canvas lvl;
 
     int itemamount = -1;
     int fruit = 0;
@@ -40,6 +41,7 @@ public class gamescript : MonoBehaviour
     {
         stage = 0;
         game.planeDistance = -1;
+        lvl.planeDistance = -1;
         this.GameStart();
         uselesstext.gameObject.SetActive(false);
     }
@@ -53,7 +55,7 @@ public class gamescript : MonoBehaviour
         if(!background.isPlaying&&!debug){background.Play();};
         if(stage==1){this.GameUpdate();};
     }
-    void GameUpdate()
+    void GameUpdate()  // GamePlay Code for Counting
     {
         if(lives==0)
         {
@@ -126,7 +128,7 @@ public class gamescript : MonoBehaviour
     void UpdateHighscore()
     {
         //background.volume=background_volume; // It's here 'cuz screw making new function & it's called like once a playthough.
-        highboard.text = "Highscore:";
+        highboard.text = "Rekord:";
         High = Mathf.Abs(highscore).ToString();
         if(score<0){scoreboard.text+="-";};
         if(High.Length==1){highboard.text+="00"+High;};
@@ -144,10 +146,10 @@ public class gamescript : MonoBehaviour
     }
     void UpdateLives()
     {
-        if(lives==3){livesboard.text="♡ ♡ ♡";};
-        if(lives==2){livesboard.text="♡ ♡ ☠";};
-        if(lives==1){livesboard.text="♡ ☠ ☠";};
-        if(lives==0){livesboard.text="☠ ☠ ☠";this.GameEnd();};
+        if(lives==3){livesboard.text="";};
+        if(lives==2){livesboard.text="/";};
+        if(lives==1){livesboard.text="/      /";};
+        if(lives==0){livesboard.text="/      /       /";this.GameEnd();};
     }
     void Progress()
     {
@@ -171,7 +173,7 @@ public class gamescript : MonoBehaviour
         for(int i=0;i<amount;i++) 
         {
             bananas[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,10+y,16), Quaternion.identity);
-            bananas[i].transform.Rotate(-84,0,90,Space.Self);
+            bananas[i].transform.Rotate(0,0,0,Space.Self);
         };
     }
 }
