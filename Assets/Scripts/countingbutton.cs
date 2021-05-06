@@ -5,6 +5,7 @@ using UnityEngine;
 public class countingbutton : MonoBehaviour
 {
     public gamescript gamescript;
+    public int level;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,6 @@ public class countingbutton : MonoBehaviour
         gamescript.game.planeDistance = 60;
         gamescript.lvl.planeDistance = -1;
         gamescript.stage = 1;
-        //gamescript.GameStart();
+        gamescript.GameStart(level);
     }
 }

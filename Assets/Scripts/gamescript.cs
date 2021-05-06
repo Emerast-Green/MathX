@@ -12,21 +12,26 @@ public class gamescript : MonoBehaviour
     public AudioSource background;
 
     public GameObject[] prefabs;
-    
     public GameObject[] bananas;
+    public GameObject[] apples;
+
     public Text board;
     public Text scoreboard;
     public Text livesboard;
     public Text highboard;
     public Text uselesstext;
+    public Text eq_symbol;
     public float background_volume;
     public int stage; //  which stage is active?
+    public int level; // what is current level (0-2)
+
     public Canvas menu;
     public Canvas game;
     public Canvas lvl;
 
-    int itemamount = -1;
+    int itemamount = -1; // whatever is value required 
     int fruit = 0;
+    int fruit_ = 0;
 
     int t; // temporary itemamount value
     int score;
@@ -42,7 +47,7 @@ public class gamescript : MonoBehaviour
         stage = 0;
         game.planeDistance = -1;
         lvl.planeDistance = -1;
-        this.GameStart();
+        //this.GameStart();
         uselesstext.gameObject.SetActive(false);
     }
 
@@ -55,7 +60,7 @@ public class gamescript : MonoBehaviour
         if(!background.isPlaying&&!debug){background.Play();};
         if(stage==1){this.GameUpdate();};
     }
-    void GameUpdate()  // GamePlay Code for Counting
+    void GameUpdate()  // Code for game's loop
     {
         if(lives==0)
         {
@@ -70,19 +75,15 @@ public class gamescript : MonoBehaviour
             };
 
         };
-        if(progress==true)
+        if(progress==true) // this code is responsible for gameplay itself
         {           
-            t = Random.Range(1,10);
-            if(t==itemamount){t=Random.Range(1,10);};
-            fruit = Random.Range(0,prefabs.Length);
-            itemamount = t;
-            print("Random:"+itemamount.ToString());
-            if(lives>0){this.Draw(0,itemamount,fruit);}else{this.Clean(itemamount);};
-            progress = false;
+            if(level==0){level_Counting();};
+            if(level==1){level_Equation(0);};
+            if(level==2){level_Equation(1);};
             board.text = "";
             Continue = true;
         };
-        if(board.text.Length < 1)
+        if(board.text.Length < itemamount.ToString().Length)
         {
             board.text += Input.inputString;
         }else{
@@ -100,6 +101,7 @@ public class gamescript : MonoBehaviour
                     lives-=1;
                     board.text = "";
                     Continue = false;
+                    this.Clean();
                     Invoke("Progress",.5f);
                     this.UpdateScore();
                     this.UpdateLives();
@@ -107,14 +109,73 @@ public class gamescript : MonoBehaviour
             }
         };
     }
-    public void GameStart()
+    public void level_Counting()
     {
-        highscore = PlayerPrefs.GetInt("highscore");
+        eq_symbol.text = "";
+        t = Random.Range(1,10);
+        if(t==itemamount){t=Random.Range(1,10);};
+        fruit = Random.Range(0,prefabs.Length);
+        itemamount = t;
+        print("Random:"+itemamount.ToString());
+        if(lives>0){this.Draw(itemamount,fruit,0);};
+        progress = false;
+    }
+    public void level_Equation(int tier) // tier = 0 for add,sub & tier = 1 for add,sub,mult
+    {
+        // Getting Variables for Equation
+        
+        int eq = -1;
+        if(tier==0){eq=Random.Range(0,2);}else{eq=Random.Range(0,3);};
+        int F1 = Random.Range(1,10);
+        int F2 = Random.Range(1,10);
+        if(eq==2&&F1==10&&F2==10){F1=9;};
+        while(F1==F2){F2=Random.Range(1,10);};
+        // Equations
+        progress = false;
+        this.Clean();
+        fruit = Random.Range(0,prefabs.Length);
+        fruit_ = Random.Range(0,prefabs.Length);
+        while(fruit==fruit_){fruit_=Random.Range(0,prefabs.Length);};
+        bananas[10]=Instantiate(prefabs[fruit], new Vector3(8.5f,23.55f,16), Quaternion.identity);
+        bananas[10].transform.Rotate(0,0,0,Space.Self);
+        apples[10]=Instantiate(prefabs[fruit_], new Vector3(15.4f,23.55f,16), Quaternion.identity);
+        apples[10].transform.Rotate(0,0,0,Space.Self);
+        if(eq==0)
+        {
+            eq_symbol.text = "+";
+            print("Addition "+F1.ToString()+"+"+F2.ToString());
+            if(lives>0){this.Draw(F1,fruit,0);};
+            if(lives>0){this.Draw(F2,fruit_,1);};
+            itemamount = F1+F2;
+        };
+        if(eq==1)
+        {
+            eq_symbol.text = "-";
+            if(F1<F2){int FT = 0; FT = F1; F1 = F2; F2 = FT;};
+            print("Substraction "+F1.ToString()+"-"+F2.ToString());
+            if(lives>0){this.Draw(F1,fruit,0);};
+            if(lives>0){this.Draw(F2,fruit_,1);};
+            itemamount = F1-F2;
+        };
+        if(eq==2)
+        {
+            eq_symbol.text = "X";
+            print("Multiplication "+F1.ToString()+"x"+F2.ToString());
+            if(lives>0){this.Draw(F1,fruit,0);};
+            if(lives>0){this.Draw(F2,fruit_,1);};
+            itemamount = F1*F2;
+        };
+    }
+    public void GameStart(int l)
+    {
+        //highscore = PlayerPrefs.GetInt("highscore");
+        highscore = PlayerPrefs.GetInt("highscore"+l.ToString());
         lives = 3;
+        level = l;
         Continue = true;
         progress = true;
         itemamount = Random.Range(1,10);
-        highscore = PlayerPrefs.GetInt("highscore");
+        highscore = PlayerPrefs.GetInt("highscore"+l.ToString());
         score = 0;
         Invoke("UpdateHighscore",.1f);
         this.UpdateLives();
@@ -155,25 +216,35 @@ public class gamescript : MonoBehaviour
     {
         progress=true;
     }
-    void Clean(int amount)
+    void Clean()
     {
-        for(int i=0;i<10;i++)
-        {
-            Destroy(bananas[i]);
-            bananas[i]=null;
-        }
-    }
-    void Draw(int y,int amount,int prefab_index)
-    {
-        for(int i=0;i<20;i++)
+        for(int i=0;i<11;i++)
         {
             Destroy(bananas[i]);
             bananas[i] = null;
+            Destroy(apples[i]);
+            apples[i] = null;
         }
+    }
+    void Draw(int amount,int prefab_index,int ind)
+    {
+        // for(int i=0;i<20;i++)
+        // {
+        //     Destroy(bananas[i]);
+        //     bananas[i] = null;
+        // }
         for(int i=0;i<amount;i++) 
         {
-            bananas[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,10+y,16), Quaternion.identity);
-            bananas[i].transform.Rotate(0,0,0,Space.Self);
+            if(ind==0)
+            {
+                bananas[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,10,16), Quaternion.identity);
+                bananas[i].transform.Rotate(0,0,0,Space.Self);
+            };
+            if(ind==1)
+            {
+                apples[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,8,16), Quaternion.identity);
+                apples[i].transform.Rotate(0,0,0,Space.Self);
+            };            
         };
     }
 }
