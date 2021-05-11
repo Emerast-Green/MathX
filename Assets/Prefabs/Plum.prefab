@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7402864078514240622}
   - component: {fileID: 7381146356446276429}
   - component: {fileID: 5904774089253181828}
+  - component: {fileID: -6690938085272366838}
   m_Layer: 0
   m_Name: Plum
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088961135782175195}
-  m_LocalRotation: {x: -0.61142236, y: 0.36209852, z: 0.3852238, w: 0.58877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.094875, y: 8.370825, z: -13.347574}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-6690938085272366838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088961135782175195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768716496979a67499533a0b48e30a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 2088961135782175195}
+  rotation: {x: -59.53983, y: 44.72136, z: 37.25421}

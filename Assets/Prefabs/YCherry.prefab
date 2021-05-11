@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9070710655628697671}
   - component: {fileID: 1730825321015611708}
   - component: {fileID: 4723716673398790919}
+  - component: {fileID: 8023268450998757452}
   m_Layer: 0
   m_Name: YCherry
   m_TagString: Untagged
@@ -25,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3876885664157849669}
-  m_LocalRotation: {x: -0.9656299, y: -0, z: -0, w: 0.25992098}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.26783872, z: 0.9309332}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8023268450998757452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876885664157849669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768716496979a67499533a0b48e30a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 3876885664157849669}
+  rotation: {x: -59.53983, y: 44.72136, z: 37.25421}

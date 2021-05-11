@@ -42,6 +42,19 @@ public class gamescript : MonoBehaviour
     bool progress;
     bool Continue;
     // Start is called before the first frame update
+
+    void level_Models()
+    {
+        eq_symbol.text = "WIP";
+        itemamount = -1;
+        for(int i=0;i<prefabs.Length;i++) 
+        {
+            bananas[i] = Instantiate(prefabs[i], new Vector3(-8+i*4,10,16), Quaternion.identity);
+           // bananas[i].transform.Rotate(-0.595f,0.447f,0.372f,Space.Self);
+        };
+        if(lives>0){this.Draw(itemamount,fruit,0);};
+        progress = false;      
+    }
     void Start()
     {
         stage = 0;
@@ -80,6 +93,7 @@ public class gamescript : MonoBehaviour
             if(level==0){level_Counting();};
             if(level==1){level_Equation(0);};
             if(level==2){level_Equation(1);};
+            if(level==3){level_Models();};
             board.text = "";
             Continue = true;
         };

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6186345693186065372}
   - component: {fileID: 5299949063515858015}
   - component: {fileID: 8484189087425605696}
+  - component: {fileID: 6533143554990107631}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: RApple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6038645080420420268}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0047503263, y: -0.54653627, z: 0.0010434401}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 120, y: 120, z: 120}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6533143554990107631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038645080420420268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768716496979a67499533a0b48e30a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 6038645080420420268}
+  rotation: {x: -59.53983, y: 44.72136, z: 37.25421}

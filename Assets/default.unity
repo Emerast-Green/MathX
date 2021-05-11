@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamescript: {fileID: 2146517304}
-  level: 0
+  level: 3
 --- !u!65 &873845317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2422,7 +2422,7 @@ MonoBehaviour:
   loose_sound: {fileID: 2021092684}
   background: {fileID: 860481185}
   prefabs:
-  - {fileID: 6209488111636201364, guid: 3cb3018757b604e4e9d328da65dd3e05, type: 3}
+  - {fileID: 6713946603035981862, guid: 3cb3018757b604e4e9d328da65dd3e05, type: 3}
   - {fileID: 7493653110465038505, guid: 368c4a51ac6bbd0448e665078f49c86f, type: 3}
   - {fileID: 4003343035656953347, guid: 0b776188d8c3a51408dbd14094eb0bd3, type: 3}
   - {fileID: 2088961135782175195, guid: d2b7af6100d177145b7c9a0fa1e8d5ce, type: 3}
