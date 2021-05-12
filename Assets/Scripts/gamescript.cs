@@ -131,29 +131,31 @@ public class gamescript : MonoBehaviour
         fruit = Random.Range(0,prefabs.Length);
         itemamount = t;
         print("Random:"+itemamount.ToString());
+        this.Clean();
         if(lives>0){this.Draw(itemamount,fruit,0);};
         progress = false;
     }
     public void level_Equation(int tier) // tier = 0 for add,sub & tier = 1 for add,sub,mult
     {
         // Getting Variables for Equation
-        
         int eq = -1;
         if(tier==0){eq=Random.Range(0,2);}else{eq=Random.Range(0,3);};
         int F1 = Random.Range(1,10);
         int F2 = Random.Range(1,10);
         if(eq==2&&F1==10&&F2==10){F1=9;};
         while(F1==F2){F2=Random.Range(1,10);};
-        // Equations
         progress = false;
         this.Clean();
         fruit = Random.Range(0,prefabs.Length);
         fruit_ = Random.Range(0,prefabs.Length);
         while(fruit==fruit_){fruit_=Random.Range(0,prefabs.Length);};
-        bananas[10]=Instantiate(prefabs[fruit], new Vector3(8.5f,23.55f,16), Quaternion.identity);
-        bananas[10].transform.Rotate(0,0,0,Space.Self);
-        apples[10]=Instantiate(prefabs[fruit_], new Vector3(15.4f,23.55f,16), Quaternion.identity);
-        apples[10].transform.Rotate(0,0,0,Space.Self);
+        if(lives>0)
+        {
+            bananas[10]=Instantiate(prefabs[fruit], new Vector3(8.5f,23.55f,16), Quaternion.identity);
+            bananas[10].transform.Rotate(0,0,0,Space.Self);
+             apples[10]=Instantiate(prefabs[fruit_], new Vector3(15.4f,23.55f,16), Quaternion.identity);
+             apples[10].transform.Rotate(0,0,0,Space.Self);
+        }
         if(eq==0)
         {
             eq_symbol.text = "+";
@@ -196,7 +198,7 @@ public class gamescript : MonoBehaviour
     }
     void GameEnd()
     {
-        if(score>highscore){PlayerPrefs.SetInt("highscore",score);print("NEW HIGHSCORE "+score.ToString());};
+        if(score>highscore){PlayerPrefs.SetInt("highscore"+level.ToString(),score);print("NEW HIGHSCORE "+score.ToString());};
         print("death");
         Continue=false;
     }
@@ -234,10 +236,8 @@ public class gamescript : MonoBehaviour
     {
         for(int i=0;i<11;i++)
         {
-            Destroy(bananas[i]);
-            bananas[i] = null;
-            Destroy(apples[i]);
-            apples[i] = null;
+            Destroy(bananas[i],t=0);
+            Destroy(apples[i],t=0);
         }
     }
     void Draw(int amount,int prefab_index,int ind)
@@ -251,12 +251,12 @@ public class gamescript : MonoBehaviour
         {
             if(ind==0)
             {
-                bananas[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,10,16), Quaternion.identity);
+                bananas[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,11,16), Quaternion.identity);
                 bananas[i].transform.Rotate(0,0,0,Space.Self);
             };
             if(ind==1)
             {
-                apples[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,8,16), Quaternion.identity);
+                apples[i] = Instantiate(prefabs[prefab_index], new Vector3(-8+i*4,6,16), Quaternion.identity);
                 apples[i].transform.Rotate(0,0,0,Space.Self);
             };            
         };

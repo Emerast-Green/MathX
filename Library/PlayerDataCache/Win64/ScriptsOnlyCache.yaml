@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - exitbutton
     - gamebutton
     - gamescript
+    - rotationfix
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -152,41 +153,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14014}
     - Class: 114
-      Script: {instanceID: 14310}
+      Script: {instanceID: 14132}
     - Class: 114
-      Script: {instanceID: 14372}
+      Script: {instanceID: 14312}
     - Class: 114
-      Script: {instanceID: 14392}
+      Script: {instanceID: 14374}
     - Class: 114
-      Script: {instanceID: 14518}
+      Script: {instanceID: 14394}
     - Class: 114
-      Script: {instanceID: 14556}
+      Script: {instanceID: 14520}
     - Class: 114
-      Script: {instanceID: 14564}
+      Script: {instanceID: 14558}
     - Class: 114
-      Script: {instanceID: 14878}
+      Script: {instanceID: 14566}
     - Class: 114
-      Script: {instanceID: 14942}
+      Script: {instanceID: 14880}
     - Class: 114
-      Script: {instanceID: 14950}
+      Script: {instanceID: 14944}
     - Class: 114
-      Script: {instanceID: 15200}
+      Script: {instanceID: 14952}
     - Class: 114
-      Script: {instanceID: 15384}
+      Script: {instanceID: 15202}
     - Class: 114
-      Script: {instanceID: 15430}
+      Script: {instanceID: 15386}
     - Class: 114
-      Script: {instanceID: 15624}
+      Script: {instanceID: 15432}
     - Class: 114
       Script: {instanceID: 15626}
     - Class: 114
-      Script: {instanceID: 15656}
+      Script: {instanceID: 15628}
     - Class: 114
-      Script: {instanceID: 15680}
+      Script: {instanceID: 15658}
     - Class: 114
-      Script: {instanceID: 15810}
+      Script: {instanceID: 15682}
     - Class: 114
-      Script: {instanceID: 15818}
+      Script: {instanceID: 15812}
+    - Class: 114
+      Script: {instanceID: 15820}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -650,6 +653,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerWidget
   - hash:
       serializedVersion: 2
+      Hash: be249def192d9f4e3752c4fcba29d796
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: rotationfix
+  - hash:
+      serializedVersion: 2
       Hash: f050e4ebd311386367bb1906f9218b01
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1035,4 +1044,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/default.unity
-  playerPath: G:/UnityProjects/MathX/Build/build_03/MathX.exe
+  playerPath: G:/UnityProjects/MathX/Build/MathX.exe

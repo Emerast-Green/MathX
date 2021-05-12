@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamescript: {fileID: 2146517304}
-  level: 3
+  level: 0
 --- !u!65 &873845317
 BoxCollider:
   m_ObjectHideFlags: 0
